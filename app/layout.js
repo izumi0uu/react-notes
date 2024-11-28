@@ -1,5 +1,5 @@
 import "./globals.css";
-import Sidebar from "@/app/components/sidebar";
+import Sidebar from "@components/sidebar";
 
 export default function RootLayout({ children }) {
   return (
