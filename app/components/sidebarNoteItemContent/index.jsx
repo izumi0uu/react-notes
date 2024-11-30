@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useTransition } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import Button from "@components/Button";
 
 export default function SidebarNoteContent({
   id,
@@ -56,6 +57,11 @@ export default function SidebarNoteContent({
     router.push(`/note/${id}`);
   };
 
+  const onClickToggleExpandBtn = (e) => {
+    e.stopPropagation();
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <div
       ref={itemRef}
@@ -65,24 +71,19 @@ export default function SidebarNoteContent({
       className={getClassName()}
     >
       {children}
-      <button
+      <Button
         className="sidebar-note-open"
         style={{
           backgroundColor: getBtnBackgroundColor(),
           border: getBtnBorder(),
         }}
-        onClick={() => {
-          onClickOpenBtn();
-        }}
+        onClick={onClickOpenBtn}
       >
         Open note for preview
-      </button>
-      <button
+      </Button>
+      <Button
         className="sidebar-note-toggle-expand"
-        onClick={(e) => {
-          e.stopPropagation();
-          setIsExpanded(!isExpanded);
-        }}
+        onClick={onClickToggleExpandBtn}
       >
         {isExpanded ? (
           <img
@@ -94,7 +95,7 @@ export default function SidebarNoteContent({
         ) : (
           <img src="/chevron-up.svg" width="10px" height="10px" alt="Expand" />
         )}
-      </button>
+      </Button>
       {isExpanded && expandedChildren}
     </div>
   );

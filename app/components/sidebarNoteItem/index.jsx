@@ -1,22 +1,22 @@
-import dayjs from "dayjs";
 import SidebarNoteItemContent from "@components/sidebarNoteItemContent";
+import SidebarNoteItemHeader from "@components/sidebarNoteItemHeader";
 
 const SidebarNoteItem = ({ noteId, note }) => {
   const { title, content = "", updateTime } = note;
+
+  const expandedChildren = (
+    <p className="sidebar-note-excerpt">
+      {content.substring(0, 20) || <i>(No content)</i>}
+    </p>
+  );
+
   return (
     <SidebarNoteItemContent
       id={noteId}
       title={title}
-      expandedChildren={
-        <p className="sidebar-note-excerpt">
-          {content.substring(0, 20) || <i>(No content)</i>}
-        </p>
-      }
+      expandedChildren={expandedChildren}
     >
-      <header className="sidebar-note-header">
-        <strong>{title}</strong>
-        <small>{dayjs(updateTime).format("YYYY-MM-DD hh:mm:ss")}</small>
-      </header>
+      <SidebarNoteItemHeader title={title} updateTime={updateTime} />
     </SidebarNoteItemContent>
   );
 };
