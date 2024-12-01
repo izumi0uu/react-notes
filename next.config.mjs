@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  swcMinify: true,
+  experimental: {
+    staleTimes: {
+      dynamic: 30,
+      static: 3600,
+    },
+  },
 };
 
 export default nextConfig;
