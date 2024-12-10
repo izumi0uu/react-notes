@@ -7,8 +7,8 @@ import NotePreview from "@components/notePreview";
 
 const NoteEditor = ({ noteId, initialTitle, initialBody }) => {
   const { pending } = useFormStatus();
-  const [title, setTitle] = useState(initialTitle);
-  const [body, setBody] = useState(initialBody);
+  const [title, setTitle] = useState(initialTitle || "");
+  const [body, setBody] = useState(initialBody || "");
   const isDraft = !noteId;
 
   return (
