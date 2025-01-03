@@ -20,17 +20,36 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+react-notes/
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+├── app/ # Next.js App Router 目录
+│ ├── components/ # 页面级组件
+│ │ ├── button/
+│ │ ├── editButton/
+│ │ ├── logo/
+│ │ ├── note/
+│ │ ├── noteEditor/
+│ │ ├── notePreview/
+│ │ ├── sidebar/
+│ │ ├── sidebarNoteItemContent/
+│ │ ├── sidebarNoteItemHeader/
+│ │ ├── sidebarNoteList/
+│ │ └── sidebarNoteListSkeleton/
+│ ├── note/ # 笔记相关页面
+│ │ ├── [id]/ # 动态路由：笔记详情
+│ │ │ ├── page.jsx
+│ │ │ └── loading.js
+│ │ └── edit/ # 编辑功能
+│ │ ├── [id]/
+│ │ └── page.js
+│ ├── fonts/ # 字体资源
+│ ├── action.js # 服务器操作
+│ ├── globals.css # 全局样式
+│ ├── layout.js # 根布局
+│ └── page.js # 首页
+│
+├── lib/ # 工具库
+│ └── redis.js # Redis 数据库操作
+│

@@ -1,10 +1,12 @@
-const Page = async (context) => {
-  const { params } = await context;
+import NoteEditor from "@components/noteEidtor";
+import { getNote } from "@lib/redis";
+
+const Page = async ({ params }) => {
   const { id } = params;
   const note = await getNote(id);
 
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-  await sleep(5000);
+  await sleep(3000);
 
   if (note === null) {
     return (

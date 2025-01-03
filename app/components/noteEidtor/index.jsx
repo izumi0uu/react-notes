@@ -1,73 +1,78 @@
 "use client";
 
-import { useFormStatus } from "react-dom";
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import { useFormState } from "react-dom";
 
+import { saveNote, deleteNote } from "@/app/action";
+import SaveButton from "@components/saveButton";
+import DeleteButton from "@components/deleteButton";
 import NotePreview from "@components/notePreview";
 
+const initialState = {
+  message: "",
+};
+
 const NoteEditor = ({ noteId, initialTitle, initialBody }) => {
-  const { pending } = useFormStatus();
   const [title, setTitle] = useState(initialTitle || "");
   const [body, setBody] = useState(initialBody || "");
+
+  const handleTitleChange = useCallback((e) => {
+    setTitle(e.target.value);
+  }, []);
+
+  const handleBodyChange = useCallback((e) => {
+    setBody(e.target.value);
+  }, []);
+
+  // according to the form action result, update the state
+  const [saveState, saveFormAction] = useFormState(
+    async (prevState, formData) => {
+      return await saveNote(formData);
+    },
+    initialState
+  );
+
+  const [deleteState, deleteFormAction] = useFormState(
+    async (prevState, formData) => {
+      return await deleteNote(formData);
+    },
+    initialState
+  );
+
+  // when u commit a form, the form will be disabled
+
   const isDraft = !noteId;
 
   return (
     <div className="note-editor">
       <form className="note-editor-form" autoComplete="off">
+        <div className="note-editor-menu" role="menubar">
+          <input type="hidden" name="noteId" value={noteId} />
+          <SaveButton formAction={saveFormAction} />
+          <DeleteButton isDraft={isDraft} formAction={deleteFormAction} />
+        </div>
+        <div className="note-editor-menu">{saveState?.message}</div>
         <label className="offscreen" htmlFor="note-title-input">
           Enter a title for your note
         </label>
         <input
           id="note-title-input"
           type="text"
+          name="title"
           value={title}
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
+          onChange={handleTitleChange}
         />
         <label className="offscreen" htmlFor="note-body-input">
           Enter the body for your note
         </label>
         <textarea
+          name="body"
           value={body}
           id="note-body-input"
-          onChange={(e) => setBody(e.target.value)}
+          onChange={handleBodyChange}
         />
       </form>
       <div className="note-editor-preview">
-        <form className="note-editor-menu" role="menubar">
-          <button
-            className="note-editor-done"
-            disabled={pending}
-            type="submit"
-            role="menuitem"
-          >
-            <img
-              src="/checkmark.svg"
-              width="14px"
-              height="10px"
-              alt=""
-              role="presentation"
-            />
-            Done
-          </button>
-          {!isDraft && (
-            <button
-              className="note-editor-delete"
-              disabled={pending}
-              role="menuitem"
-            >
-              <img
-                src="/cross.svg"
-                width="10px"
-                height="10px"
-                alt=""
-                role="presentation"
-              />
-              Delete
-            </button>
-          )}
-        </form>
         <div className="label label--preview" role="status">
           Preview
         </div>

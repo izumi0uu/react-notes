@@ -3,6 +3,8 @@ import Link from "next/link";
 const EditButton = ({ noteId, children }) => {
   const isDraft = noteId === null;
 
+  console.log("noteId", noteId);
+
   const getClassName = () => {
     return [
       "edit-button",

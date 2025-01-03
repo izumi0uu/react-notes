@@ -1,13 +1,12 @@
 import { getNote } from "@lib/redis";
 import Note from "@components/note";
 
-const Page = async (context) => {
-  const { params } = await context;
+const Page = async ({ params }) => {
   const { id } = params;
   const note = await getNote(id);
 
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-  await sleep(5000);
+  await sleep(10000);
 
   if (note === null) {
     return (
@@ -18,7 +17,7 @@ const Page = async (context) => {
       </div>
     );
   }
-  return <Note id={id} note={note} />;
+  return <Note noteId={id} note={note} />;
 };
 
 export default Page;
