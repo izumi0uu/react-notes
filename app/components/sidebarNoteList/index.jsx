@@ -1,8 +1,8 @@
 import SidebarNoteItem from "@/app/components/sidebarNoteItem";
 import { getAllNotes } from "@lib/redis";
+import { sleep } from "@lib/utils";
 
 const SidebarNoteList = async () => {
-  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   await sleep(3000);
   const notes = await getAllNotes();
 

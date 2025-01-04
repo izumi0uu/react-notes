@@ -4,6 +4,8 @@ import { redirect } from "next/navigation";
 import { addNote, updateNote, delNote } from "@lib/redis";
 import { z } from "zod";
 
+import { sleep } from "@lib/utils";
+
 // validation pattern
 const schema = z.object({
   title: z.string(),
@@ -12,8 +14,6 @@ const schema = z.object({
     .min(1, "Please enter content")
     .max(100, "Max 100 characters"),
 });
-
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export async function saveNote(formData) {
   const noteId = formData.get("noteId");

@@ -1,11 +1,11 @@
 import NoteEditor from "@components/noteEidtor";
 import { getNote } from "@lib/redis";
+import { sleep } from "@lib/utils";
 
 const Page = async ({ params }) => {
   const { id } = params;
   const note = await getNote(id);
 
-  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   await sleep(3000);
 
   if (note === null) {
