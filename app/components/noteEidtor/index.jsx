@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
-import { useFormState } from "react-dom";
+import { useState, useCallback, useActionState } from "react";
 
 import { saveNote, deleteNote } from "@/app/action";
 import SaveButton from "@components/saveButton";
@@ -25,21 +24,19 @@ const NoteEditor = ({ noteId, initialTitle, initialBody }) => {
   }, []);
 
   // according to the form action result, update the state
-  const [saveState, saveFormAction] = useFormState(
+  const [saveState, saveFormAction] = useActionState(
     async (prevState, formData) => {
       return await saveNote(formData);
     },
     initialState
   );
 
-  const [deleteState, deleteFormAction] = useFormState(
+  const [deleteState, deleteFormAction] = useActionState(
     async (prevState, formData) => {
       return await deleteNote(formData);
     },
     initialState
   );
-
-  // when u commit a form, the form will be disabled
 
   const isDraft = !noteId;
 

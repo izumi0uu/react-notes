@@ -19,7 +19,7 @@ export async function saveNote(formData) {
   if (noteId) {
     // 更新已存在的笔记
     await updateNote(noteId, data);
-    redirect(`/note/${noteId}`);
+    // redirect(`/note/${noteId}`);
   } else {
     // 创建新笔记
     const id = await addNote(data);

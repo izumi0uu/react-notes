@@ -5,8 +5,8 @@ const Page = async ({ params }) => {
   const { id } = params;
   const note = await getNote(id);
 
-  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-  await sleep(10000);
+  // const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  // await sleep(4000);
 
   if (note === null) {
     return (
