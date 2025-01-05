@@ -1,15 +1,23 @@
-import { getAllNotes, resetDatabase } from "@lib/redis";
+import { getAllNotes } from "@lib/redis";
 import { sleep } from "@lib/utils";
 
+import SidebarNoteItem from "@components/sidebarNoteItem";
 import SidebarNoteListFilter from "@components/sidebarNoteListFilter";
 
 const SidebarNoteList = async () => {
   await sleep(3000);
   const notes = await getAllNotes();
-  if (Object.entries(notes).length == 0)
+
+  if (Object.entries(notes).length === 0)
     return <div className="notes-empty">{"No notes created yet!"}</div>;
 
-  return <SidebarNoteListFilter notes={notes} />;
+  return (
+    <SidebarNoteListFilter>
+      {Object.entries(notes).map(([id, note]) => {
+        return <SidebarNoteItem noteId={id} note={JSON.parse(note)} />;
+      })}
+    </SidebarNoteListFilter>
+  );
 };
 
 export default SidebarNoteList;

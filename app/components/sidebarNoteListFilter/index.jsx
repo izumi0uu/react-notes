@@ -1,26 +1,21 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import React from "react";
-import SidebarNoteItem from "@components/sidebarNoteItem";
+import { Children } from "react";
 
-const SidebarNoteListFilter = ({ notes }) => {
+const SidebarNoteListFilter = ({ children }) => {
   const searchParams = useSearchParams();
   const searchText = searchParams.get("q");
 
   return (
     <ul className="notes-list">
-      {Object.entries(notes).map(([id, note]) => {
-        const noteData = JSON.parse(note);
+      {Children.map(children, (child, index) => {
+        const title = child.props.title;
         if (
           !searchText ||
-          (searchText && noteData?.title?.toLowerCase().includes(searchText))
+          (searchText && title.toLowerCase().includes(searchText.toLowerCase()))
         ) {
-          return (
-            <li key={id}>
-              <SidebarNoteItem noteId={id} note={noteData} />
-            </li>
-          );
+          return <li key={index}>{child}</li>;
         }
         return null;
       })}
