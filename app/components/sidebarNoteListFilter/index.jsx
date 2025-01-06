@@ -38,18 +38,20 @@ const SidebarNoteListFilter = ({ notes }) => {
             note.title.toLowerCase().includes(searchText.toLowerCase()))
         ) {
           return (
-            <SidebarNoteItemContent
-              key={noteId}
-              id={noteId}
-              title={note.title}
-              expandedChildren={
-                <p className="sidebar-note-excerpt">
-                  {note.content.substring(0, 20) || <i>(No content)</i>}
-                </p>
-              }
-            >
-              {header}
-            </SidebarNoteItemContent>
+            <li className="v-stack" key={noteId}>
+              <SidebarNoteItemContent
+                key={noteId}
+                id={noteId}
+                title={note.title}
+                expandedChildren={
+                  <p className="sidebar-note-excerpt">
+                    {note.content.substring(0, 20) || <i>(No content)</i>}
+                  </p>
+                }
+              >
+                {header}
+              </SidebarNoteItemContent>
+            </li>
           );
         }
         return null;
