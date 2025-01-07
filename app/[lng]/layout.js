@@ -15,3 +15,7 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+export async function generateStaticParams() {
+  return [{ lng: "en" }, { lng: "zh" }];
+}
