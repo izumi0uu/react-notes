@@ -5,6 +5,9 @@ import { NextResponse } from "next/server";
 
 import { locales, defaultLocale } from "@/config.js";
 
+const excludeFile = ["logo.svg"];
+const publicFile = /\.(.*)$/;
+
 function getLocale(request) {
   const headers = {
     "accept-language": request.headers.get("accept-language") || "",
@@ -18,9 +21,15 @@ export function middleware(request) {
   console.log("middleware", request);
   const { pathname } = request.nextUrl;
 
-  if (pathname.match(/\.(svg|png|jpg|jpeg|gif|webp)$/)) {
+  // if (pathname.match(/\.(svg|png|jpg|jpeg|gif|webp)$/)) {
+  //   return NextResponse.next();
+  // }
+
+  if (
+    publicFile.test(pathname) &&
+    excludeFile.indexOf(pathname.substr(1)) === -1
+  )
     return NextResponse.next();
-  }
 
   // 判断请求路径中是否已存在语言，已存在语言则跳过
   const pathnameHasLocale = locales.some(
@@ -32,6 +41,10 @@ export function middleware(request) {
   // 获取匹配的 locale
   const locale = getLocale(request);
   request.nextUrl.pathname = `/${locale}${pathname}`;
+
+  // 默认语言不重定向
+  if (locale === defaultLocale) return NextResponse.rewrite(request.nextUrl);
+
   // 重定向，如 /products 重定向到 /en-US/products
   return NextResponse.redirect(request.nextUrl);
 }

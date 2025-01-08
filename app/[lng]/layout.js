@@ -1,9 +1,14 @@
 import "./globals.css";
 import Sidebar from "@components/sidebar";
+import { locales } from "@/config";
 
-export default function RootLayout({ children }) {
+export async function generateStaticParam() {
+  return locales.map((lng) => ({ lng }));
+}
+
+export default function RootLayout({ children, params: { lng } }) {
   return (
-    <html lang="en">
+    <html lang={lng}>
       <body>
         <div className="container">
           <div className="main">

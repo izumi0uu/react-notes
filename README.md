@@ -23,7 +23,6 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 ## Project Structure
 
 react-notes/
-
 ├── app/ # Next.js App Router 目录
 │ ├── components/ # 页面级组件
 │ │ ├── button/
@@ -50,6 +49,5 @@ react-notes/
 │ ├── layout.js # 根布局
 │ └── page.js # 首页
 │
-├── lib/ # 工具库
-│ └── redis.js # Redis 数据库操作
-│
+└── lib/ # 工具库
+└── redis.js # Redis 数据库操作
