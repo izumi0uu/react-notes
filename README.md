@@ -52,3 +52,11 @@ react-notes/
 └── lib/                                   # 工具库
     └── redis.js                           # Redis 数据库操作
 ```
+
+# i18n
+
+react-i18next 是 i18next 的一个插件
+
+i18next-resources-to-backend，因为将翻译内容定义在 JS 文件中并不方便，定义在多个 json 文件中更为合适，i18next-resources-to-backend 帮助我们读取 json 文件资源，生成字典。
+
+i18next-browser-languageDetector，在浏览器端自动检测语言
