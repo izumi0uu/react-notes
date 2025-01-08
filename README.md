@@ -20,34 +20,35 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Project Structure
+# Project Structure
 
+```
 react-notes/
-├── app/ # Next.js App Router 目录
-│ ├── components/ # 页面级组件
-│ │ ├── button/
-│ │ ├── editButton/
-│ │ ├── logo/
-│ │ ├── note/
-│ │ ├── noteEditor/
-│ │ ├── notePreview/
-│ │ ├── sidebar/
-│ │ ├── sidebarNoteItemContent/
-│ │ ├── sidebarNoteItemHeader/
-│ │ ├── sidebarNoteList/
-│ │ └── sidebarNoteListSkeleton/
-│ ├── note/ # 笔记相关页面
-│ │ ├── [id]/ # 动态路由：笔记详情
-│ │ │ ├── page.jsx
-│ │ │ └── loading.js
-│ │ └── edit/ # 编辑功能
-│ │ ├── [id]/
-│ │ └── page.js
-│ ├── fonts/ # 字体资源
-│ ├── action.js # 服务器操作
-│ ├── globals.css # 全局样式
-│ ├── layout.js # 根布局
-│ └── page.js # 首页
-│
-└── lib/ # 工具库
-└── redis.js # Redis 数据库操作
+├── app/                                    # Next.js App Router 目录
+│   ├── components/                         # 页面级组件
+│   │   ├── button/
+│   │   ├── editButton/
+│   │   ├── logo/
+│   │   ├── note/
+│   │   ├── noteEditor/
+│   │   ├── notePreview/
+│   │   ├── sidebar/
+│   │   ├── sidebarNoteItemContent/
+│   │   ├── sidebarNoteItemHeader/
+│   │   ├── sidebarNoteList/
+│   │   └── sidebarNoteListSkeleton/
+│   ├── note/                              # 笔记相关页面
+│   │   ├── [id]/                         # 动态路由：笔记详情
+│   │   │   ├── page.jsx
+│   │   │   └── loading.js
+│   │   └── edit/                         # 编辑功能
+│   │       ├── [id]/
+│   │       └── page.js
+│   ├── fonts/                             # 字体资源
+│   ├── action.js                          # 服务器操作
+│   ├── globals.css                        # 全局样式
+│   ├── layout.js                          # 根布局
+│   └── page.js                            # 首页
+└── lib/                                   # 工具库
+    └── redis.js                           # Redis 数据库操作
+```
