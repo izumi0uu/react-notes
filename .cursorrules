@@ -1,6 +1,34 @@
+# Check .cursorrules file
+- 在我进行ai提问时, 如果.cursorrules文件生效, 则在每个我对你的提问中开始说明".cursorrules文件生效"
+
 ## Next.js: Prioritize Route Handlers
 
 - **Implement all API endpoints using Route Handlers.**
 - **Use Route Handlers for complex server operations like database operations, external API calls, and authentication.**
 - **Use Server Actions only for simple form submissions or basic data processing.**
-- 在我进行ai提问时，如果.cursorrules文件生效，则说出".cursorrules文件生效"，否则说出"文件未生效"
+
+## Next.js: Module Import Optimization
+
+- **Use Precise Module Imports:**
+  ```javascript
+  // ✅ Recommended: Import specific module
+  import { specific } from "package/specific/path"
+  
+  // ❌ Avoid: Import full package
+  import { specific } from "package"
+  ```
+
+- **Minimize Dependencies in Server Components:**
+  - Import only server-compatible modules
+  - Avoid modules containing client-side features (hooks, DOM operations)
+  - Check module source for client-side dependencies
+
+- **Optimize for Tree-Shaking:**
+  - Use direct paths to specific functionality
+  - Import from submodules when available
+  - Consider checking module source or documentation for optimal import paths
+
+- **Bundle Size Considerations:**
+  - Monitor imports in server components for client-side code inclusion
+  - Use package documentation to identify optimized import paths
+  - Consider splitting client/server functionality when importing packages
