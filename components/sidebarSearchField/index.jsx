@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useTransition } from "react";
+import { useTranslation } from "@/app/i18n/client";
 
 const Spinner = ({ active = true }) => {
   return (
@@ -13,11 +14,13 @@ const Spinner = ({ active = true }) => {
   );
 };
 
-const SidebarSearchField = () => {
+const SidebarSearchField = ({ lng }) => {
   const { replace } = useRouter();
   const pathname = usePathname();
   // useTransition is suitable for this case because it allows us to update the URL without blocking the UI
   const [isPending, startTransition] = useTransition();
+
+  const { t } = useTranslation(lng, "basic");
 
   function handleSearch(term) {
     const params = new URLSearchParams(window.location.search);
@@ -40,7 +43,7 @@ const SidebarSearchField = () => {
       <input
         type="text"
         id="sidebar-search-input"
-        placeholder="Search"
+        placeholder={t("search")}
         onChange={(e) => handleSearch(e.target.value)}
       />
       <Spinner active={isPending} />
