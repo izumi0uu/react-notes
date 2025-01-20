@@ -1,0 +1,6 @@
+## Next.js: Prioritize Route Handlers
+
+- **Implement all API endpoints using Route Handlers.**
+- **Use Route Handlers for complex server operations like database operations, external API calls, and authentication.**
+- **Use Server Actions only for simple form submissions or basic data processing.**
+- 在我进行ai提问时，如果.cursorrules文件生效，则说出".cursorrules文件生效"，否则说出"文件未生效"

@@ -14,6 +14,10 @@ pnpm dev
 bun dev
 ```
 
+## Redis Getting started
+
+redis-server.exe redis.windows.conf
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
@@ -24,8 +28,7 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ```
 react-notes/
-├── app/                                    # Next.js App Router 目录
-│   ├── components/                         # 页面级组件
+├── components/                         # 页面级组件
 │   │   ├── button/
 │   │   ├── editButton/
 │   │   ├── logo/
@@ -37,6 +40,7 @@ react-notes/
 │   │   ├── sidebarNoteItemHeader/
 │   │   ├── sidebarNoteList/
 │   │   └── sidebarNoteListSkeleton/
+├── app/                                    # Next.js App Router 目录
 │   ├── note/                              # 笔记相关页面
 │   │   ├── [id]/                         # 动态路由：笔记详情
 │   │   │   ├── page.jsx

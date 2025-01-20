@@ -5,6 +5,7 @@
       "@/*": ["./*"],
       "@components/*": ["./components/*"],
       "@lib/*": ["./lib/*"],
+      "@app/i18n": ["./app/i18n/index.js"],
       "@actions": ["./app/[lng]/action.js"]
     }
   }
