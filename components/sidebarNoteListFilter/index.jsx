@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 // import { Children } from "react";
-import SidebarNoteItemContent from "@components/sidebarNoteItemContent";
+import SidebarNoteItemContent from "@/components/sidebarNoteItemContent";
 
 // const SidebarNoteListFilter = ({ children }) => {
 //   const searchParams = useSearchParams();

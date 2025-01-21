@@ -2,8 +2,8 @@ import { getAllNotes } from "@lib/redis";
 import { sleep } from "@lib/utils";
 
 // import SidebarNoteItem from "@components/sidebarNoteItem";
-import SidebarNoteListFilter from "@components/sidebarNoteListFilter";
-import SidebarNoteItemHeader from "@components/sidebarNoteItemHeader";
+import SidebarNoteListFilter from "@/components/sidebarNoteListFilter";
+import SidebarNoteItemHeader from "@/components/sidebarNoteItemHeader";
 
 const SidebarNoteList = async () => {
   await sleep(3000);

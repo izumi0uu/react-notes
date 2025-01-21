@@ -1,5 +1,5 @@
-import SidebarNoteItemContent from "@components/sidebarNoteItemContent";
-import SidebarNoteItemHeader from "@components/sidebarNoteItemHeader";
+import SidebarNoteItemContent from "@/components/sidebarNoteItemContent";
+import SidebarNoteItemHeader from "@/components/sidebarNoteItemHeader";
 
 const SidebarNoteItem = ({ noteId, note }) => {
   const { title, content = "", updateTime } = note;

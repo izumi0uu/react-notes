@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 
-import SiderbarNoteList from "@components/sidebarNoteList";
-import EditButton from "@components/editButton";
-import Logo from "@components/logo";
-import SidebarSearchField from "@components/sidebarSearchField";
-import SidebarNoteListSkeleton from "@components/sidebarNoteListSkeleton";
+import SiderbarNoteList from "@/components/sidebarNoteList";
+import EditButton from "@/components/editButton";
+import Logo from "@/components/logo";
+import SidebarSearchField from "@/components/sidebarSearchField";
+import SidebarNoteListSkeleton from "@/components/sidebarNoteListSkeleton";
 
 const Sidebar = async () => {
   return (

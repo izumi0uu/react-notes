@@ -1,4 +1,4 @@
-import NoteEditor from "@components/noteEidtor";
+import NoteEditor from "@/components/noteEidtor";
 import { getNote } from "@lib/redis";
 import { sleep } from "@lib/utils";
 

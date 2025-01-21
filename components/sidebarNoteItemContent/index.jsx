@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useTransition } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import Button from "@components/Button";
+import Button from "@/components/Button";
 
 export default function SidebarNoteContent({
   id,

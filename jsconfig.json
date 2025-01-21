@@ -2,7 +2,7 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./*"],
-      "@components/*": ["./app/components/*"],
+      "@components/*": ["./components/*"],
       "@lib/*": ["./lib/*"]
     }
   }
