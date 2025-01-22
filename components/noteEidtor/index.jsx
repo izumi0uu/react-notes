@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useActionState, useEffect } from "react";
 
-import { saveNote, deleteNote } from "@/app/action";
+import { saveNote, deleteNote } from "@/app/[locale]/action";
 import SaveButton from "@/components/saveButton";
 import DeleteButton from "@/components/deleteButton";
 import NotePreview from "@/components/notePreview";

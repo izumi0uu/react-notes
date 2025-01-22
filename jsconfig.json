@@ -3,7 +3,8 @@
     "paths": {
       "@/*": ["./*"],
       "@components/*": ["./components/*"],
-      "@lib/*": ["./lib/*"]
+      "@lib/*": ["./lib/*"],
+      "@/actions": ["./app/[locale]/actions.js"]
     }
   }
 }
