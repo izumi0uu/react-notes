@@ -3,7 +3,7 @@ import Note from "@/components/note";
 import { sleep } from "@lib/utils";
 
 const Page = async ({ params }) => {
-  const { id } = params;
+  const { id } = await params;
   const note = await getNote(id);
 
   // await sleep(4000);

@@ -1,6 +1,25 @@
 # Check .cursorrules file
 - 在我进行ai提问时, 如果.cursorrules文件生效, 则在每个我对你的提问中开始说明".cursorrules文件生效"
 
+## Project structure
+
+react-notes/
+├── messages/
+│   ├── en.json
+│   └── zh.json
+├── i18n/
+│   ├── routing.js
+│   └── request.js
+├── middleware.js
+├── next.config.mjs
+├── README.md
+├── components/
+├── app/
+    ├── [locale]/
+    │   ├── layout.js
+    │   └── page.js
+    └── page.js
+
 ## Next.js: Config
 
 - 使用next-intl作为国际化插件
