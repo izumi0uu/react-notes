@@ -3,22 +3,53 @@
 
 ## Project structure
 
+```
 react-notes/
-├── messages/
-│   ├── en.json
-│   └── zh.json
-├── i18n/
-│   ├── routing.js
-│   └── request.js
-├── middleware.js
-├── next.config.mjs
-├── README.md
-├── components/
-├── app/
-    ├── [locale]/
-    │   ├── layout.js
-    │   └── page.js
-    └── page.js
+├── app/                    # Next.js App Router directory
+│   ├── [locale]/          # Internationalization routes
+│   │   ├── layout.js      # Root layout
+│   │   ├── page.js        # Home page
+│   │   └── globals.css    # Global styles
+│   └── note/              # Note related pages
+│       ├── [id]/          # Dynamic route: note detail
+│       │   ├── page.jsx
+│       │   └── loading.js
+│       └── edit/          # Edit functionality
+│           └── [id]/
+│               └── page.js
+├── components/            # Shared components
+│   ├── button/
+│   ├── editButton/
+│   ├── logo/
+│   ├── nextIntlClientProvider/
+│   ├── note/
+│   ├── noteEditor/
+│   ├── notePreview/
+│   ├── sidebar/
+│   ├── sidebarNoteItemContent/
+│   ├── sidebarNoteItemHeader/
+│   ├── sidebarNoteList/
+│   ├── sidebarNoteListFilter/
+│   ├── sidebarNoteListSkeleton/
+│   └── sidebarSearchField/
+├── i18n/                  # Internationalization configuration
+│   ├── request.js        # Request config for next-intl
+│   └── routing.js        # Routing config for next-intl
+├── lib/                   # Utility functions
+│   └── redis.js          # Redis database operations
+├── messages/             # Internationalization messages
+│   ├── en.json          # English translations
+│   └── zh.json          # Chinese translations
+├── public/               # Static files
+├── .env                  # Environment variables
+├── .eslintrc.json       # ESLint configuration
+├── .gitignore           # Git ignore rules
+├── config.js            # Global configuration
+├── middleware.js        # Next.js middleware
+├── next.config.mjs      # Next.js configuration
+├── package.json         # Project dependencies
+└── README.md            # Project documentation
+```
 
 ## Next.js: Config
 

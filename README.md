@@ -1,4 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Project Structure
+
+```
+react-notes/
+├── app/                    # Next.js App Router directory
+│   ├── [locale]/          # Internationalization routes
+│   │   ├── layout.js      # Root layout
+│   │   ├── page.js        # Home page
+│   │   └── globals.css    # Global styles
+│   └── note/              # Note related pages
+│       ├── [id]/          # Dynamic route: note detail
+│       │   ├── page.jsx
+│       │   └── loading.js
+│       └── edit/          # Edit functionality
+│           └── [id]/
+│               └── page.js
+├── components/            # Shared components
+│   ├── button/
+│   ├── editButton/
+│   ├── logo/
+│   ├── nextIntlClientProvider/
+│   ├── note/
+│   ├── noteEditor/
+│   ├── notePreview/
+│   ├── sidebar/
+│   ├── sidebarNoteItemContent/
+│   ├── sidebarNoteItemHeader/
+│   ├── sidebarNoteList/
+│   ├── sidebarNoteListFilter/
+│   ├── sidebarNoteListSkeleton/
+│   └── sidebarSearchField/
+├── i18n/                  # Internationalization configuration
+│   ├── request.js        # Request config for next-intl
+│   └── routing.js        # Routing config for next-intl
+├── lib/                   # Utility functions
+│   └── redis.js          # Redis database operations
+├── messages/             # Internationalization messages
+│   ├── en.json          # English translations
+│   └── zh.json          # Chinese translations
+├── public/               # Static files
+├── .env                  # Environment variables
+├── .eslintrc.json       # ESLint configuration
+├── .gitignore           # Git ignore rules
+├── config.js            # Global configuration
+├── middleware.js        # Next.js middleware
+├── next.config.mjs      # Next.js configuration
+├── package.json         # Project dependencies
+└── README.md            # Project documentation
+```
 
 ## Getting Started
 
@@ -16,40 +64,21 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `app/[locale]/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Project Structure
+- 📝 Real-time note editing
+- 🌐 Internationalization support (English & Chinese)
+- 🎨 Markdown support
+- 🔍 Note search functionality
+- 💾 Redis database integration
+- ⚡ Server-side rendering
+- 🎯 Client-side optimizations
 
-react-notes/
+## Technologies
 
-├── app/ # Next.js App Router 目录
-│ ├── components/ # 页面级组件
-│ │ ├── button/
-│ │ ├── editButton/
-│ │ ├── logo/
-│ │ ├── note/
-│ │ ├── noteEditor/
-│ │ ├── notePreview/
-│ │ ├── sidebar/
-│ │ ├── sidebarNoteItemContent/
-│ │ ├── sidebarNoteItemHeader/
-│ │ ├── sidebarNoteList/
-│ │ └── sidebarNoteListSkeleton/
-│ ├── note/ # 笔记相关页面
-│ │ ├── [id]/ # 动态路由：笔记详情
-│ │ │ ├── page.jsx
-│ │ │ └── loading.js
-│ │ └── edit/ # 编辑功能
-│ │ ├── [id]/
-│ │ └── page.js
-│ ├── fonts/ # 字体资源
-│ ├── action.js # 服务器操作
-│ ├── globals.css # 全局样式
-│ ├── layout.js # 根布局
-│ └── page.js # 首页
-│
-├── lib/ # 工具库
-│ └── redis.js # Redis 数据库操作
-│
+- [Next.js](https://nextjs.org/) - React framework
+- [next-intl](https://next-intl-docs.vercel.app/) - Internationalization
+- [Redis](https://redis.io/) - Database
+- [React Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
