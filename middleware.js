@@ -9,7 +9,12 @@ import { locales, defaultLocale } from "@/config.js";
 // });
 
 export const config = {
-  matcher: ["/", "/(zh|en)/:path*", "/((?!api|_next|_vercel|.*\\.).)*"],
+  matcher: [
+    "/",
+    "/(zh|en)/:path*",
+    "/note/:path*",
+    "/((?!api|_next|_vercel|.*\\.).)*",
+  ],
 };
 
 export function middleware(request) {

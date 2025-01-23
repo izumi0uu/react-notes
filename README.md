@@ -2,18 +2,23 @@
 
 ```
 react-notes/
-├── app/                    # Next.js App Router directory
+├── app/                   # Next.js App Router directory
 │   ├── [locale]/          # Internationalization routes
 │   │   ├── layout.js      # Root layout
 │   │   ├── page.js        # Home page
 │   │   └── globals.css    # Global styles
+│   │   └── page.module.css
+│   │   └── actions.js     # Server actions
 │   └── note/              # Note related pages
 │       ├── [id]/          # Dynamic route: note detail
 │       │   ├── page.jsx
-│       │   └── loading.js
+│       │   └── loading.jsx
 │       └── edit/          # Edit functionality
-│           └── [id]/
-│               └── page.js
+│            ├── [id]/
+│            │   └── page.jsx
+│            └── page.jsx
+│            └── loading.jsx
+│
 ├── components/            # Shared components
 │   ├── button/
 │   ├── editButton/
@@ -80,5 +85,5 @@ You can start editing the page by modifying `app/[locale]/page.js`. The page aut
 
 - [Next.js](https://nextjs.org/) - React framework
 - [next-intl](https://next-intl-docs.vercel.app/) - Internationalization
-- [Redis](https://redis.io/) - Database
+- [Redis]s(https://redis.io/) - Database
 - [React Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)

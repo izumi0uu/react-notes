@@ -5,18 +5,23 @@
 
 ```
 react-notes/
-├── app/                    # Next.js App Router directory
+├── app/                   # Next.js App Router directory
 │   ├── [locale]/          # Internationalization routes
 │   │   ├── layout.js      # Root layout
 │   │   ├── page.js        # Home page
 │   │   └── globals.css    # Global styles
+│   │   └── page.module.css    
+│   │   └── actions.js     # Server actions
 │   └── note/              # Note related pages
 │       ├── [id]/          # Dynamic route: note detail
 │       │   ├── page.jsx
-│       │   └── loading.js
+│       │   └── loading.jsx
 │       └── edit/          # Edit functionality
-│           └── [id]/
-│               └── page.js
+│            ├── [id]/
+│            │   └── page.jsx
+│            └── page.jsx
+│            └── loading.jsx
+│  
 ├── components/            # Shared components
 │   ├── button/
 │   ├── editButton/
