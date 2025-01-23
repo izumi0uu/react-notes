@@ -6,6 +6,7 @@ import EditButton from "@/components/editButton";
 import Logo from "@/components/logo";
 import SidebarSearchField from "@/components/sidebarSearchField";
 import SidebarNoteListSkeleton from "@/components/sidebarNoteListSkeleton";
+import SidebarUpload from "@/components/sidebarUpload";
 
 const Sidebar = async () => {
   const t = await getTranslations("Basic");
@@ -21,6 +22,7 @@ const Sidebar = async () => {
           <Suspense fallback={<SidebarNoteListSkeleton />}>
             <SiderbarNoteList />
           </Suspense>
+          <SidebarUpload />
         </nav>
       </section>
     </>
