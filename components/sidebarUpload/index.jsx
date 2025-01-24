@@ -34,6 +34,7 @@ export default function SidebarUpload() {
 
       const data = await response.json();
       router.push(`/note/${data.uid}`);
+      router.refresh();
     } catch (error) {
       console.error("something went wrong");
     }

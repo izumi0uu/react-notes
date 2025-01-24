@@ -55,6 +55,10 @@ react-notes/
 
 ## Getting Started
 
+### start db
+
+redis-server.exe redis.windows.conf
+
 First, run the development server:
 
 ```bash

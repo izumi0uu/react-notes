@@ -4,6 +4,6 @@
     "initText": "Click a note on the left to view something! 🥺",
     "search": "search",
     "edit": "edit",
-    "upload": "upload file"
+    "upload": "upload file(.md)"
   }
 }

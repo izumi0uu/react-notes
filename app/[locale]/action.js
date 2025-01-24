@@ -1,7 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { addNote, updateNote, delNote } from "@lib/redis";
+import { addNote, updateNote, delNote, getAllNotes } from "@lib/redis";
 import { z } from "zod";
 
 import { sleep } from "@lib/utils";
@@ -42,6 +42,10 @@ export async function saveNote(formData) {
   }
 
   return { message: "Note saved!" };
+}
+
+export async function getNotes() {
+  return await getAllNotes();
 }
 
 export async function deleteNote(formData) {
