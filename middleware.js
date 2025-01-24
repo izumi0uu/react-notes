@@ -12,6 +12,7 @@ export const config = {
   matcher: [
     "/",
     "/(zh|en)/:path*",
+    "/client",
     "/note/:path*",
     "/((?!api|_next|_vercel|.*\\.).)*",
   ],
