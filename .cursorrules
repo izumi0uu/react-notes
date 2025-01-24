@@ -67,6 +67,7 @@ react-notes/
 - 使用marked 15.0.3
 - 使用sanitize-html 2.13.1
 - 使用zod 3.24.1
+- 使用next-auth 5.0.0-beta.25
 
 ## Next.js: Prioritize Route Handlers
 

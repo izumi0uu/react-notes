@@ -4,7 +4,8 @@
       "@/*": ["./*"],
       "@components/*": ["./components/*"],
       "@lib/*": ["./lib/*"],
-      "@/actions": ["./app/[locale]/action.js"]
+      "@/actions": ["./app/[locale]/action.js"],
+      "@/auth": ["./auth"]
     }
   }
 }
