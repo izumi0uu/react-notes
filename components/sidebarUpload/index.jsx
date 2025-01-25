@@ -28,7 +28,7 @@ export default function SidebarUpload() {
       });
 
       if (!response.ok) {
-        console.error("something went wrong");
+        console.error(response.statusText);
         return;
       }
 
@@ -36,7 +36,7 @@ export default function SidebarUpload() {
       router.push(`/note/${data.uid}`);
       router.refresh();
     } catch (error) {
-      console.error("something went wrong");
+      console.error(error);
     }
 
     // 重置 file input

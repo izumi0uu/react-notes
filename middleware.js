@@ -1,4 +1,5 @@
 import createMiddleware from "next-intl/middleware";
+import { auth } from "@/auth";
 import { locales, defaultLocale } from "@/config.js";
 
 // export default createMiddleware({
@@ -8,31 +9,28 @@ import { locales, defaultLocale } from "@/config.js";
 //   localePrefix: "always",
 // });
 
+const initMiddleware = createMiddleware({
+  locales,
+  defaultLocale,
+  localeDetection: true,
+  localePrefix: "always",
+});
+
 export const config = {
   matcher: [
     "/",
     "/(zh|en)/:path*",
     "/client",
     "/note/:path*",
-    "/((?!api|_next|_vercel|.*\\.).)*",
+    "/note/edit/:path*",
+    "/((?!api|_next|_vercel|.*\\.|favicon.ico).*)",
   ],
 };
 
-export function middleware(request) {
-  // 打印请求头信息
-  console.log("Accept-Language:", request.headers.get("accept-language"));
-  console.log("Cookie:", request.headers.get("cookie"));
+export async function middleware(request) {
+  const authResult = await auth(request);
+  console.log("authResult", authResult);
+  if (authResult instanceof Response) return authResult;
 
-  // 打印当前 URL 信息
-  console.log("Current pathname:", request.nextUrl.pathname);
-  console.log("Locale detection enabled:", true);
-  console.log("Default locale:", defaultLocale);
-  console.log("Supported locales:", locales);
-
-  return createMiddleware({
-    locales,
-    defaultLocale,
-    localeDetection: true,
-    localePrefix: "always",
-  })(request);
+  return initMiddleware(request);
 }

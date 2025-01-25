@@ -3,7 +3,7 @@ import { getNote } from "@lib/redis";
 import { sleep } from "@lib/utils";
 
 const Page = async ({ params }) => {
-  const { id } = params;
+  const { id } = await params;
   const note = await getNote(id);
 
   await sleep(3000);

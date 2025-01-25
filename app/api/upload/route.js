@@ -5,11 +5,16 @@ import { revalidatePath } from "next/cache";
 import mime from "mime";
 import dayjs from "dayjs";
 import { addNote } from "@/lib/redis";
+import { auth } from "@/auth";
 
 export async function POST(request) {
+  const session = await auth();
   // accept formData
   const formData = await request.formData();
   const file = formData.get("file");
+
+  if (!session)
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   if (!file)
     return NextResponse.json({ error: "No file uploaded" }, { status: 400 });

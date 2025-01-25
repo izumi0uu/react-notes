@@ -12,7 +12,7 @@ const schema = z.object({
   content: z
     .string()
     .min(1, "Please enter content")
-    .max(100, "Max 100 characters"),
+    .max(1000, "Max 1000 characters"),
 });
 
 export async function saveNote(formData) {
