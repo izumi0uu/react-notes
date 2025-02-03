@@ -23,7 +23,6 @@ export const {
       },
     }),
   ],
-  debug: true,
   callbacks: {
     authorized({ request, auth }) {
       const pathname = request.nextUrl.pathname;

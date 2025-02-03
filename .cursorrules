@@ -100,3 +100,7 @@ react-notes/
   - Monitor imports in server components for client-side code inclusion
   - Use package documentation to identify optimized import paths
   - Consider splitting client/server functionality when importing packages
+
+## Before AI MODEL using internet, please check the following rules:
+
+- **Check if the related url is fresh.**

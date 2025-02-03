@@ -20,16 +20,26 @@ export const config = {
   matcher: [
     "/",
     "/(zh|en)/:path*",
-    "/client",
     "/note/:path*",
-    "/note/edit/:path*",
+    "/client",
     "/((?!api|_next|_vercel|.*\\.|favicon.ico).*)",
   ],
 };
 
 export async function middleware(request) {
+  if (request.nextUrl.pathname === "/client") {
+    const locale = request.cookies.get("NEXT_LOCALE")?.value || defaultLocale;
+    return Response.redirect(new URL(`/${locale}/client`, request.url));
+  }
+
+  if (request.nextUrl.pathname.startsWith("/note")) {
+    const locale = request.cookies.get("NEXT_LOCALE")?.value || defaultLocale;
+    return Response.redirect(
+      new URL(`/${locale}${request.nextUrl.pathname}`, request.url)
+    );
+  }
+
   const authResult = await auth(request);
-  console.log("authResult", authResult);
   if (authResult instanceof Response) return authResult;
 
   return initMiddleware(request);
