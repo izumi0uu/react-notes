@@ -1,4 +1,5 @@
-import { getAllNotes } from "@lib/redis";
+// import { getAllNotes } from "@lib/redis";
+import { getAllNotes } from "@/lib/strapi";
 import { sleep } from "@lib/utils";
 
 // import SidebarNoteItem from "@components/sidebarNoteItem";

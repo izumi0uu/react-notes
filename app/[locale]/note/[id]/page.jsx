@@ -1,4 +1,5 @@
-import { getNote } from "@lib/redis";
+// import { getNote } from "@lib/redis";
+import { getNote } from "@lib/strapi";
 import Note from "@/components/note";
 import { sleep } from "@lib/utils";
 

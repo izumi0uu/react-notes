@@ -1,5 +1,6 @@
 import NoteEditor from "@/components/noteEidtor";
-import { getNote } from "@lib/redis";
+// import { getNote } from "@lib/redis";
+import { getNote } from "@lib/strapi";
 import { sleep } from "@lib/utils";
 
 const Page = async ({ params }) => {

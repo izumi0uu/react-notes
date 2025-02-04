@@ -1,7 +1,8 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { addNote, updateNote, delNote, getAllNotes } from "@lib/redis";
+// import { addNote, updateNote, delNote, getAllNotes } from "@lib/redis";
+import { addNote, updateNote, delNote, getAllNotes } from "@lib/strapi";
 import { z } from "zod";
 
 import { sleep } from "@lib/utils";
