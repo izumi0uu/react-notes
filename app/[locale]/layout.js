@@ -11,7 +11,7 @@ export default async function RootLayout({ children, params }) {
   const { locale } = await params;
   if (!locales.includes(locale)) notFound();
 
-  const messages = await getMessages("Basic");
+  const messages = await getMessages(locale);
 
   return (
     <html lang={locale}>

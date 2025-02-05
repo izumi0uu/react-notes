@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.10",
     "dayjs": "^1.11.13",
     "ioredis": "^5.4.1",
     "marked": "^15.0.3",
